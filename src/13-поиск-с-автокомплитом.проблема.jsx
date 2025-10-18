@@ -17,8 +17,9 @@ const COUNTRIES = [
 ];
 
 function SearchWithAutocomplete() {
+    const [searchQuery, setSearchQuery] = useState('');
+
     // Создайте состояния:
-    // - searchQuery (строка для поискового запроса)
     // - suggestions (массив подсказок для автокомплита)
     // - showSuggestions (показывать ли выпадающий список)
     // - filteredCountries (отфильтрованный список стран)
