@@ -1,7 +1,5 @@
 import './style.css';
 
-const { useState } = React;
-
 function ProfileCard({ avatar, name, bio, followers, following }) {
     return (
         <div className="profile-card">
@@ -53,7 +51,7 @@ function App() {
             
             <div className="cards-container">
                 <ProfileCard 
-                    avatar="https://i.pravatar.cc/300?img=1"
+                    avatar="public/avatars/avatar1woman.jpg"
                     name="Анна Иванова"
                     bio="Frontend разработчик | React энтузиаст 💻"
                     followers={1234}
@@ -61,7 +59,7 @@ function App() {
                 />
                 
                 <ProfileCard 
-                    avatar="https://i.pravatar.cc/300?img=3"
+                    avatar="public/avatars/avatar2men.jpg"
                     name="Иван Петров"
                     bio="UI/UX дизайнер | Люблю создавать красивые интерфейсы 🎨"
                     followers={2567}
@@ -69,7 +67,7 @@ function App() {
                 />
                 
                 <ProfileCard 
-                    avatar="https://i.pravatar.cc/300?img=5"
+                    avatar="public/avatars/avatar3woman.jpg"
                     name="Мария Сидорова"
                     bio="Backend разработчик | Node.js эксперт 🚀"
                     followers={3421}

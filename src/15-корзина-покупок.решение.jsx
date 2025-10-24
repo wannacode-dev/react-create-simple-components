@@ -4,12 +4,12 @@ const { useState } = React;
 
 // Данные товаров
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM, 512GB SSD', price: 75000, image: 'https://via.placeholder.com/100/3b82f6/ffffff?text=Ноутбук' },
-    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка, Cherry MX Red', price: 8500, image: 'https://via.placeholder.com/100/10b981/ffffff?text=Клавиатура' },
-    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: 'https://via.placeholder.com/100/f59e0b/ffffff?text=Мышь' },
-    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: 'https://via.placeholder.com/100/8b5cf6/ffffff?text=Монитор' },
-    { id: 5, name: 'Наушники', description: 'Sony WH-1000XM4, шумоподавление', price: 22000, image: 'https://via.placeholder.com/100/ec4899/ffffff?text=Наушники' },
-    { id: 6, name: 'Веб-камера', description: 'Logitech C920, Full HD', price: 5500, image: 'https://via.placeholder.com/100/06b6d4/ffffff?text=Веб-камера' },
+    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM, 512GB SSD', price: 75000, image: 'public/avatars/laptop1.jpg' },
+    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка, Cherry MX Red', price: 8500, image: 'public/avatars/keyboard1.jpg' },
+    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: 'public/avatars/mouse1.jpg' },
+    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: 'public/avatars/monitor1.jpg' },
+    { id: 5, name: 'Наушники', description: 'Sony WH-1000XM4, шумоподавление', price: 22000, image: 'public/avatars/iphone1.jpg' },
+    { id: 6, name: 'Веб-камера', description: 'Logitech C920, Full HD', price: 5500, image: 'public/avatars/mouse1.jpg' },
 ];
 
 function ShoppingCart() {
@@ -76,7 +76,7 @@ function ShoppingCart() {
                     <h2>Каталог товаров</h2>
                     <div className="products-list">
                         {PRODUCTS.map(product => (
-                            <div key={product.id} className="product-card">
+                            <div key={product.id} className="product-card" data-category="Электроника">
                                 <img src={product.image} alt={product.name} className="product-image" />
                                 <div className="product-info">
                                     <h3 className="product-name">{product.name}</h3>

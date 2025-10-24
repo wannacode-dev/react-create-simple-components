@@ -3,7 +3,7 @@ import './style.css';
 const { useState } = React;
 
 function WelcomeCard() {
-    const name = "Анна";
+    const name = "Макс";
     const role = "React разработчик";
     const emoji = "👋";
     

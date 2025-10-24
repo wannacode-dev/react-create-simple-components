@@ -1,7 +1,5 @@
 import './style.css';
 
-const { useState } = React;
-
 function WelcomeCard() {
     // Создайте переменные:
     // name - ваше имя

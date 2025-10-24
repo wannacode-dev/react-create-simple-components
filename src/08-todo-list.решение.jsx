@@ -46,7 +46,7 @@ function TodoList() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && addTodo()}
+                    onKeyUp={(e) => e.key === 'Enter' && addTodo()}
                     placeholder="Что нужно сделать?"
                     className="todo-input"
                 />

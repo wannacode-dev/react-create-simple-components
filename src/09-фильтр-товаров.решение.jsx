@@ -3,15 +3,12 @@ import './style.css';
 const { useState } = React;
 
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', category: 'Электроника', price: 45000, image: 'https://via.placeholder.com/300x200/3b82f6/ffffff?text=Ноутбук' },
-    { id: 2, name: 'iPhone 15', category: 'Электроника', price: 80000, image: 'https://via.placeholder.com/300x200/3b82f6/ffffff?text=iPhone' },
-    { id: 3, name: 'Футболка Nike', category: 'Одежда', price: 2500, image: 'https://via.placeholder.com/300x200/10b981/ffffff?text=Футболка' },
-    { id: 4, name: 'Кроссовки Adidas', category: 'Одежда', price: 7000, image: 'https://via.placeholder.com/300x200/10b981/ffffff?text=Кроссовки' },
-    { id: 5, name: 'Холодильник LG', category: 'Бытовая техника', price: 35000, image: 'https://via.placeholder.com/300x200/f59e0b/ffffff?text=Холодильник' },
-    { id: 6, name: 'Стиральная машина Samsung', category: 'Бытовая техника', price: 25000, image: 'https://via.placeholder.com/300x200/f59e0b/ffffff?text=Стиралка' },
-    { id: 7, name: 'Наушники Sony', category: 'Электроника', price: 8000, image: 'https://via.placeholder.com/300x200/3b82f6/ffffff?text=Наушники' },
-    { id: 8, name: 'Джинсы Levi\'s', category: 'Одежда', price: 5500, image: 'https://via.placeholder.com/300x200/10b981/ffffff?text=Джинсы' },
-    { id: 9, name: 'Микроволновка', category: 'Бытовая техника', price: 6000, image: 'https://via.placeholder.com/300x200/f59e0b/ffffff?text=Микроволновка' },
+    { id: 1, name: 'Ноутбук ASUS', category: 'Электроника', price: 45000, image: 'public/avatars/laptop1.jpg' },
+    { id: 2, name: 'iPhone 15', category: 'Электроника', price: 80000, image: 'public/avatars/iphone1.jpg' },
+    { id: 3, name: 'Футболка Nike', category: 'Одежда', price: 2500, image: 'public/avatars/tshirt1.jpg' },
+    { id: 4, name: 'Кроссовки Adidas', category: 'Одежда', price: 7000, image: 'public/avatars/sneakers1.jpg' },
+    { id: 5, name: 'Холодильник LG', category: 'Бытовая техника', price: 35000, image: 'public/avatars/refregirator1.jpg' },
+    { id: 6, name: 'Стиральная машина Samsung', category: 'Бытовая техника', price: 25000, image: 'public/avatars/washingmachine1.jpg' }
 ];
 
 function ProductsFilter() {
@@ -110,7 +107,7 @@ function ProductsFilter() {
                     </div>
                 ) : (
                     filteredProducts.map(product => (
-                        <div key={product.id} className="product-card">
+                        <div key={product.id} className="product-card" data-category={product.category}>
                             <img src={product.image} alt={product.name} className="product-image" />
                             <div className="product-info">
                                 <div className="product-category">{product.category}</div>
