@@ -4,15 +4,15 @@ const { useState, useEffect } = React;
 
 // Данные изображений
 const IMAGES = [
-    { id: 1, url: 'https://picsum.photos/400/400?random=1', title: 'Закат в горах', author: 'Анна Иванова' },
-    { id: 2, url: 'https://picsum.photos/400/400?random=2', title: 'Городской пейзаж', author: 'Иван Петров' },
-    { id: 3, url: 'https://picsum.photos/400/400?random=3', title: 'Лесная тропа', author: 'Мария Сидорова' },
-    { id: 4, url: 'https://picsum.photos/400/400?random=4', title: 'Морской берег', author: 'Пётр Смирнов' },
-    { id: 5, url: 'https://picsum.photos/400/400?random=5', title: 'Горное озеро', author: 'Елена Козлова' },
-    { id: 6, url: 'https://picsum.photos/400/400?random=6', title: 'Осенний парк', author: 'Дмитрий Волков' },
-    { id: 7, url: 'https://picsum.photos/400/400?random=7', title: 'Ночной город', author: 'Ольга Морозова' },
-    { id: 8, url: 'https://picsum.photos/400/400?random=8', title: 'Весенние цветы', author: 'Николай Новиков' },
-    { id: 9, url: 'https://picsum.photos/400/400?random=9', title: 'Зимний лес', author: 'Татьяна Белова' },
+    { id: 1, url: 'public/avatars/avatar1woman.jpg', title: 'Закат в горах', author: 'Анна Иванова' },
+    { id: 2, url: 'public/avatars/avatar2men.jpg', title: 'Городской пейзаж', author: 'Иван Петров' },
+    { id: 3, url: 'public/avatars/avatar3woman.jpg', title: 'Лесная тропа', author: 'Мария Сидорова' },
+    { id: 4, url: 'public/avatars/avatar4men.jpg', title: 'Морской берег', author: 'Пётр Смирнов' },
+    { id: 5, url: 'public/avatars/laptop1.jpg', title: 'Горное озеро', author: 'Елена Козлова' },
+    { id: 6, url: 'public/avatars/iphone1.jpg', title: 'Осенний парк', author: 'Дмитрий Волков' },
+    { id: 7, url: 'public/avatars/keyboard1.jpg', title: 'Ночной город', author: 'Ольга Морозова' },
+    { id: 8, url: 'public/avatars/mouse1.jpg', title: 'Весенние цветы', author: 'Николай Новиков' },
+    { id: 9, url: 'public/avatars/monitor1.jpg', title: 'Зимний лес', author: 'Татьяна Белова' },
 ];
 
 function ImageGallery() {
