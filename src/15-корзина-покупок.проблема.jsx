@@ -4,10 +4,10 @@ const { useState } = React;
 
 // Данные товаров
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM', price: 75000, image: 'public/avatars/laptop1.jpg' },
-    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка', price: 8500, image: 'public/avatars/keyboard1.jpg' },
-    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: 'public/avatars/mouse1.jpg' },
-    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: 'public/avatars/monitor1.jpg' },
+    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM', price: 75000, image: '💻' },
+    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка', price: 8500, image: '⌨️' },
+    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: '🖱️' },
+    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: '🖥️' },
 ];
 
 function ShoppingCart() {
@@ -52,7 +52,13 @@ function ShoppingCart() {
                     <div className="products-list">
                         {PRODUCTS.map(product => (
                             <div key={product.id} className="product-card" data-category="Электроника">
-                                <img src={product.image} alt={product.name} className="product-image" />
+                                <div 
+                                    className="product-image"
+                                    role="img"
+                                    aria-label={product.name}
+                                >
+                                    {product.image}
+                                </div>
                                 <div className="product-info">
                                     <h3 className="product-name">{product.name}</h3>
                                     <p className="product-description">{product.description}</p>

@@ -3,7 +3,7 @@ import './style.css';
 const { useState } = React;
 
 // Создайте компонент ProfileCard, который принимает props:
-// - avatar (URL аватарки)
+// - avatar (эмодзи аватарки)
 // - name (имя)
 // - bio (краткое описание)
 // - followers (количество подписчиков)
@@ -13,11 +13,13 @@ function ProfileCard() {
     return (
         <div className="profile-card">
             {/* Аватар - используйте className="profile-avatar" */}
-            <img 
-                src=""  // Используйте prop avatar
-                alt="Profile"
+            <div 
                 className="profile-avatar"
-            />
+                role="img"
+                aria-label="Profile avatar"
+            >
+                {/* Используйте prop avatar (эмодзи) */}
+            </div>
             
             {/* Информация */}
             <div className="profile-info">

@@ -4,10 +4,10 @@ const { useState, useEffect } = React;
 
 // Данные изображений
 const IMAGES = [
-    { id: 1, url: 'public/avatars/avatar1woman.jpg', title: 'Закат в горах', author: 'Анна Иванова' },
-    { id: 2, url: 'public/avatars/avatar2men.jpg', title: 'Городской пейзаж', author: 'Иван Петров' },
-    { id: 3, url: 'public/avatars/avatar3woman.jpg', title: 'Лесная тропа', author: 'Мария Сидорова' },
-    { id: 4, url: 'public/avatars/avatar4men.jpg', title: 'Морской берег', author: 'Пётр Смирнов' }
+    { id: 1, url: '🌄', title: 'Закат в горах', author: 'Анна Иванова' },
+    { id: 2, url: '🏙️', title: 'Городской пейзаж', author: 'Иван Петров' },
+    { id: 3, url: '🌲', title: 'Лесная тропа', author: 'Мария Сидорова' },
+    { id: 4, url: '🏖️', title: 'Морской берег', author: 'Пётр Смирнов' }
 ];
 
 function ImageGallery() {
@@ -62,7 +62,13 @@ function ImageGallery() {
                         className="gallery-item"
                         onClick={() => {/* Откройте модалку */}}
                     >
-                        <img src={image.url} alt={image.title} />
+                        <div 
+                            className="gallery-emoji"
+                            role="img"
+                            aria-label={image.title}
+                        >
+                            {image.url}
+                        </div>
                         <div className="gallery-item-overlay">
                             <div className="image-title">{image.title}</div>
                             <div className="image-author">📸 {image.author}</div>

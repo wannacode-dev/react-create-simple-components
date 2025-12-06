@@ -4,12 +4,12 @@ const { useState } = React;
 
 // Данные товаров
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM, 512GB SSD', price: 75000, image: 'public/avatars/laptop1.jpg' },
-    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка, Cherry MX Red', price: 8500, image: 'public/avatars/keyboard1.jpg' },
-    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: 'public/avatars/mouse1.jpg' },
-    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: 'public/avatars/monitor1.jpg' },
-    { id: 5, name: 'Наушники', description: 'Sony WH-1000XM4, шумоподавление', price: 22000, image: 'public/avatars/iphone1.jpg' },
-    { id: 6, name: 'Веб-камера', description: 'Logitech C920, Full HD', price: 5500, image: 'public/avatars/mouse1.jpg' },
+    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM, 512GB SSD', price: 75000, image: '💻' },
+    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка, Cherry MX Red', price: 8500, image: '⌨️' },
+    { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: '🖱️' },
+    { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: '🖥️' },
+    { id: 5, name: 'Наушники', description: 'Sony WH-1000XM4, шумоподавление', price: 22000, image: '🎧' },
+    { id: 6, name: 'Веб-камера', description: 'Logitech C920, Full HD', price: 5500, image: '📷' },
 ];
 
 function ShoppingCart() {
@@ -77,7 +77,13 @@ function ShoppingCart() {
                     <div className="products-list">
                         {PRODUCTS.map(product => (
                             <div key={product.id} className="product-card" data-category="Электроника">
-                                <img src={product.image} alt={product.name} className="product-image" />
+                                <div 
+                                    className="product-image"
+                                    role="img"
+                                    aria-label={product.name}
+                                >
+                                    {product.image}
+                                </div>
                                 <div className="product-info">
                                     <h3 className="product-name">{product.name}</h3>
                                     <p className="product-description">{product.description}</p>
@@ -115,7 +121,13 @@ function ShoppingCart() {
                             <div className="cart-items">
                                 {cart.map(item => (
                                     <div key={item.id} className="cart-item">
-                                        <img src={item.image} alt={item.name} className="cart-item-image" />
+                                        <div 
+                                            className="cart-item-image"
+                                            role="img"
+                                            aria-label={item.name}
+                                        >
+                                            {item.image}
+                                        </div>
                                         <div className="cart-item-info">
                                             <h4 className="cart-item-name">{item.name}</h4>
                                             <div className="cart-item-price">

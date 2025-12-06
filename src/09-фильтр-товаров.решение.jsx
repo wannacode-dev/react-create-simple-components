@@ -3,12 +3,12 @@ import './style.css';
 const { useState } = React;
 
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', category: 'Электроника', price: 45000, image: 'public/avatars/laptop1.jpg' },
-    { id: 2, name: 'iPhone 15', category: 'Электроника', price: 80000, image: 'public/avatars/iphone1.jpg' },
-    { id: 3, name: 'Футболка Nike', category: 'Одежда', price: 2500, image: 'public/avatars/tshirt1.jpg' },
-    { id: 4, name: 'Кроссовки Adidas', category: 'Одежда', price: 7000, image: 'public/avatars/sneakers1.jpg' },
-    { id: 5, name: 'Холодильник LG', category: 'Бытовая техника', price: 35000, image: 'public/avatars/refregirator1.jpg' },
-    { id: 6, name: 'Стиральная машина Samsung', category: 'Бытовая техника', price: 25000, image: 'public/avatars/washingmachine1.jpg' }
+    { id: 1, name: 'Ноутбук ASUS', category: 'Электроника', price: 45000, image: '💻' },
+    { id: 2, name: 'iPhone 15', category: 'Электроника', price: 80000, image: '📱' },
+    { id: 3, name: 'Футболка Nike', category: 'Одежда', price: 2500, image: '👕' },
+    { id: 4, name: 'Кроссовки Adidas', category: 'Одежда', price: 7000, image: '👟' },
+    { id: 5, name: 'Холодильник LG', category: 'Бытовая техника', price: 35000, image: '🧊' },
+    { id: 6, name: 'Стиральная машина Samsung', category: 'Бытовая техника', price: 25000, image: '🧺' }
 ];
 
 function ProductsFilter() {
@@ -108,7 +108,13 @@ function ProductsFilter() {
                 ) : (
                     filteredProducts.map(product => (
                         <div key={product.id} className="product-card" data-category={product.category}>
-                            <img src={product.image} alt={product.name} className="product-image" />
+                            <div 
+                                className="product-image"
+                                role="img"
+                                aria-label={product.name}
+                            >
+                                {product.image}
+                            </div>
                             <div className="product-info">
                                 <div className="product-category">{product.category}</div>
                                 <h3 className="product-name">{product.name}</h3>

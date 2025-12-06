@@ -4,15 +4,15 @@ const { useState, useEffect } = React;
 
 // Данные изображений
 const IMAGES = [
-    { id: 1, url: 'public/avatars/avatar1woman.jpg', title: 'Закат в горах', author: 'Анна Иванова' },
-    { id: 2, url: 'public/avatars/avatar2men.jpg', title: 'Городской пейзаж', author: 'Иван Петров' },
-    { id: 3, url: 'public/avatars/avatar3woman.jpg', title: 'Лесная тропа', author: 'Мария Сидорова' },
-    { id: 4, url: 'public/avatars/avatar4men.jpg', title: 'Морской берег', author: 'Пётр Смирнов' },
-    { id: 5, url: 'public/avatars/laptop1.jpg', title: 'Горное озеро', author: 'Елена Козлова' },
-    { id: 6, url: 'public/avatars/iphone1.jpg', title: 'Осенний парк', author: 'Дмитрий Волков' },
-    { id: 7, url: 'public/avatars/keyboard1.jpg', title: 'Ночной город', author: 'Ольга Морозова' },
-    { id: 8, url: 'public/avatars/mouse1.jpg', title: 'Весенние цветы', author: 'Николай Новиков' },
-    { id: 9, url: 'public/avatars/monitor1.jpg', title: 'Зимний лес', author: 'Татьяна Белова' },
+    { id: 1, url: '🌄', title: 'Закат в горах', author: 'Анна Иванова' },
+    { id: 2, url: '🏙️', title: 'Городской пейзаж', author: 'Иван Петров' },
+    { id: 3, url: '🌲', title: 'Лесная тропа', author: 'Мария Сидорова' },
+    { id: 4, url: '🏖️', title: 'Морской берег', author: 'Пётр Смирнов' },
+    { id: 5, url: '💻', title: 'Горное озеро', author: 'Елена Козлова' },
+    { id: 6, url: '🍂', title: 'Осенний парк', author: 'Дмитрий Волков' },
+    { id: 7, url: '🌃', title: 'Ночной город', author: 'Ольга Морозова' },
+    { id: 8, url: '🌸', title: 'Весенние цветы', author: 'Николай Новиков' },
+    { id: 9, url: '🌨️', title: 'Зимний лес', author: 'Татьяна Белова' },
 ];
 
 function ImageGallery() {
@@ -74,7 +74,13 @@ function ImageGallery() {
                         className="gallery-item"
                         onClick={() => openModal(index)}
                     >
-                        <img src={image.url} alt={image.title} />
+                        <div 
+                            className="gallery-emoji"
+                            role="img"
+                            aria-label={image.title}
+                        >
+                            {image.url}
+                        </div>
                         <div className="gallery-item-overlay">
                             <div className="image-title">{image.title}</div>
                             <div className="image-author">📸 {image.author}</div>
@@ -109,11 +115,13 @@ function ImageGallery() {
                         </button>
                         
                         {/* Изображение */}
-                        <img 
-                            src={selectedImage.url} 
-                            alt={selectedImage.title}
+                        <div 
                             className="modal-image"
-                        />
+                            role="img"
+                            aria-label={selectedImage.title}
+                        >
+                            {selectedImage.url}
+                        </div>
                         
                         {/* Информация */}
                         <div className="modal-info">
@@ -129,13 +137,15 @@ function ImageGallery() {
                         {/* Миниатюры */}
                         <div className="modal-thumbnails">
                             {IMAGES.map((image, index) => (
-                                <img 
+                                <button 
                                     key={image.id}
-                                    src={image.url}
-                                    alt={image.title}
+                                    type="button"
                                     className={`thumbnail ${index === selectedImageIndex ? 'active' : ''}`}
                                     onClick={() => setSelectedImageIndex(index)}
-                                />
+                                    aria-label={image.title}
+                                >
+                                    {image.url}
+                                </button>
                             ))}
                         </div>
                     </div>

@@ -3,11 +3,13 @@ import './style.css';
 function ProfileCard({ avatar, name, bio, followers, following }) {
     return (
         <div className="profile-card">
-            <img 
-                src={avatar}
-                alt={`${name} avatar`}
+            <div 
                 className="profile-avatar"
-            />
+                role="img"
+                aria-label={`${name} avatar`}
+            >
+                {avatar}
+            </div>
             
             <div className="profile-info">
                 <h2 className="profile-name">
@@ -51,7 +53,7 @@ function App() {
             
             <div className="cards-container">
                 <ProfileCard 
-                    avatar="public/avatars/avatar1woman.jpg"
+                    avatar="👩‍💻"
                     name="Анна Иванова"
                     bio="Frontend разработчик | React энтузиаст 💻"
                     followers={1234}
@@ -59,7 +61,7 @@ function App() {
                 />
                 
                 <ProfileCard 
-                    avatar="public/avatars/avatar2men.jpg"
+                    avatar="👨‍💻"
                     name="Иван Петров"
                     bio="UI/UX дизайнер | Люблю создавать красивые интерфейсы 🎨"
                     followers={2567}
@@ -67,7 +69,7 @@ function App() {
                 />
                 
                 <ProfileCard 
-                    avatar="public/avatars/avatar3woman.jpg"
+                    avatar="👩‍🔧"
                     name="Мария Сидорова"
                     bio="Backend разработчик | Node.js эксперт 🚀"
                     followers={3421}
