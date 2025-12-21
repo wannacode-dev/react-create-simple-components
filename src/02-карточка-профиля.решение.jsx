@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+ 
 import './style.css';
 
 function ProfileCard({ avatar, name, bio, followers, following }) {
