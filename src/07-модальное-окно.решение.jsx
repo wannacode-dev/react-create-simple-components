@@ -1,3 +1,5 @@
+import React from 'react';
+ 
 import './style.css';
 
 const { useState } = React;
@@ -73,5 +75,4 @@ function App() {
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+export default App;
