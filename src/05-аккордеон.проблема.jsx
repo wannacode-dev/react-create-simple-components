@@ -28,7 +28,7 @@ function AccordionItem({ title, content }) {
             
             {/* Контент (показывать только если isOpen === true) */}
             {/* Используйте условный рендеринг */}
-            <div className="accordion-content"></div>
+            { /* Используйте css класс accordion-content */}
             div
         </div>
     );
