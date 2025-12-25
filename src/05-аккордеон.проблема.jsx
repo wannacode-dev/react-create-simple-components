@@ -26,6 +26,8 @@ function AccordionItem({ title, content }) {
             
             {/* Контент (показывать только если isOpen === true) */}
             {/* Используйте условный рендеринг */}
+            <div className="accordion-content"></div>
+            div
         </div>
     );
 }
