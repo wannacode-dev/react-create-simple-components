@@ -5,7 +5,7 @@ import './style.css';
 const { useState } = React;
 
 // Создайте компонент ProfileCard, который принимает props:
-// - avatar (эмодзи аватарки)
+// - avatar (эмодзи аватарки) 🧑🧔👩‍🦰👩
 // - name (имя)
 // - bio (краткое описание)
 // - followers (количество подписчиков)
@@ -68,7 +68,7 @@ function App() {
             <div className="cards-container">
                 {/* Создайте 3 карточки с разными данными */}
                 {/* Например:
-                    - avatar: "https://i.pravatar.cc/300?img=1"
+                    - avatar: "🧑🧔👩‍🦰👩"
                     - name: "Анна Иванова"
                     - bio: "Frontend разработчик | React энтузиаст"
                     - followers: 1234
