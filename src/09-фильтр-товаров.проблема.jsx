@@ -44,6 +44,11 @@ function ProductsFilter() {
                 </div>
             </div>
 
+            <div className="products-info">
+                {/* Информация о результатах */}
+            </div>
+            
+
             {/* Сетка товаров */}
             <div className="products-grid">
                 {filteredProducts.map(product => (
