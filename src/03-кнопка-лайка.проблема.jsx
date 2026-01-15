@@ -33,7 +33,7 @@ function LikeButton() {
                 <strong>42</strong> людям нравится
             </div>
 
-            {/* Покажите сообщение "Спасибо за лайк с классом "thank-you-message"*/}
+            {/* Покажите сообщение "Спасибо за лайк" с классом "thank-you-message"*/}
         </div>
     );
 }
