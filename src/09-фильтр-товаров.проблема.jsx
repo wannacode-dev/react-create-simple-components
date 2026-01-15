@@ -1,5 +1,5 @@
 import React from 'react';
- 
+
 import './style.css';
 
 const { useState } = React;
@@ -19,23 +19,23 @@ function ProductsFilter() {
     // - minPrice (начальное значение: '')
     // - maxPrice (начальное значение: '')
     // - searchQuery (начальное значение: '')
-    
+
     const filteredProducts = PRODUCTS; // TODO: Отфильтруйте товары
-    
+
     // Фильтрация:
     // 1. По категории (если category !== 'all')
     // 2. По минимальной цене (если minPrice не пустой)
     // 3. По максимальной цене (если maxPrice не пустой)
     // 4. По поиску (если searchQuery не пустой)
-    
+
     return (
         <div className="products-container">
             <h1>🛍️ Интернет-магазин</h1>
-            
+
             {/* Панель фильтров */}
             <div className="filters-panel">
                 <h3>Фильтры</h3>
-                
+
                 <div className="filters-row">
                     {/* Поле поиска */}
                     {/* Выбор категории */}
@@ -43,25 +43,25 @@ function ProductsFilter() {
                     {/* Цена до */}
                 </div>
             </div>
-            
+
             {/* Сетка товаров */}
             <div className="products-grid">
-                {                    filteredProducts.map(product => (
-                        <div key={product.id} className="product-card" data-category={product.category}>
-                            <div 
-                                className="product-image"
-                                role="img"
-                                aria-label={product.name}
-                            >
-                                {product.image}
-                            </div>
-                            <div className="product-info">
-                                <div className="product-category">{product.category}</div>
-                                <h3 className="product-name">{product.name}</h3>
-                                <div className="product-price">{product.price.toLocaleString()} ₽</div>
-                            </div>
+                {filteredProducts.map(product => (
+                    <div key={product.id} className="product-card" data-category={product.category}>
+                        <div
+                            className="product-image"
+                            role="img"
+                            aria-label={product.name}
+                        >
+                            {product.image}
                         </div>
-                    ))}
+                        <div className="product-info">
+                            <div className="product-category">{product.category}</div>
+                            <h3 className="product-name">{product.name}</h3>
+                            <div className="product-price">{product.price.toLocaleString()} ₽</div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

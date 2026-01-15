@@ -39,13 +39,16 @@ function Modal({ isOpen, onClose }) {
 
 function App() {
     // Создайте состояние isModalOpen (boolean, начальное значение false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
     
     const openModal = () => {
         // Установите isModalOpen в true
+        setIsModalOpen(true)
     };
     
     const closeModal = () => {
         // Установите isModalOpen в false
+        setIsModalOpen(false)
     };
     
     return (
@@ -54,13 +57,19 @@ function App() {
                 <h1>🎭 Модальное окно</h1>
                 <p>Нажмите кнопку, чтобы открыть модальное окно</p>
                 
-                <button className="open-modal-button" onClick={openModal}>
+                <button
+                    className="open-modal-button"
+                    onClick={openModal}
+                >
                     Открыть модальное окно
                 </button>
             </div>
             
             {/* Передайте isModalOpen и closeModal в компонент Modal */}
-            <Modal isOpen={false} onClose={() => {}} />
+            <Modal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+            />
         </div>
     );
 }
