@@ -13,8 +13,8 @@ function ContactForm() {
     // - message (строка)
     // - agree (boolean)
 
-    // Создайте состояние errors (объект) для хранения ошибок валидации
-    // Создайте состояние submitted (boolean) - отправлена ли форма
+    const [errors, setErrors] = useState({});
+    const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (e) => {
         // Получите name, value, type, checked из e.target
@@ -41,7 +41,7 @@ function ContactForm() {
         // Если есть ошибки - сохраните их в errors
     };
 
-    if (submitted) {
+    if (false) {
         return (
             <div className="contact-form">
                 <div className="success-message">
