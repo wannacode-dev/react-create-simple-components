@@ -38,6 +38,12 @@ function Pagination() {
     return (
         <div className="pagination-container">
             <h1>📄 Посты с пагинацией</h1>
+
+            {/* Настройки */}
+            <div className="settings-panel">
+                <label>Постов на странице:</label>
+                {/* Сколько постов отображать */}
+            </div>
             
             {/* Отобразите currentPosts */}
             <div className="posts-list">
