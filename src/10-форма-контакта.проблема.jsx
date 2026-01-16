@@ -40,6 +40,23 @@ function ContactForm() {
         // Если ошибок нет - установите submitted в true
         // Если есть ошибки - сохраните их в errors
     };
+
+      if (submitted) {
+        return (
+            <div className="contact-form">
+                <div className="success-message">
+                    <h3>✅ Спасибо за ваше сообщение!</h3>
+                    <p>Мы свяжемся с вами в ближайшее время.</p>
+                    <p>
+                        <strong>Ваши данные:</strong><br />
+                        Имя: {formData.name}<br />
+                        Email: {formData.email}<br />
+                        Тема: {formData.subject === 'question' ? 'Вопрос' : formData.subject === 'suggestion' ? 'Предложение' : 'Жалоба'}
+                    </p>
+                </div>
+            </div>
+        );
+    }
     
     return (
         <form className="contact-form" onSubmit={handleSubmit}>
