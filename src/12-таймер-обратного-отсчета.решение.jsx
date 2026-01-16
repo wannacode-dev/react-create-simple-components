@@ -9,7 +9,6 @@ function CountdownTimer() {
     const [timeLeft, setTimeLeft] = useState(60); // в секундах
     const [isRunning, setIsRunning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
-    const [initialTime, setInitialTime] = useState(60);
     
     // Таймер с помощью useEffect
     useEffect(() => {
@@ -36,7 +35,6 @@ function CountdownTimer() {
     
     const startTimer = () => {
         if (!isRunning) {
-            setInitialTime(inputMinutes * 60);
             setTimeLeft(inputMinutes * 60);
         }
         setIsRunning(true);
@@ -61,7 +59,6 @@ function CountdownTimer() {
         setIsRunning(false);
         setIsPaused(false);
         setTimeLeft(inputMinutes * 60);
-        setInitialTime(inputMinutes * 60);
     };
     
     // Форматирование времени в MM:SS
@@ -87,7 +84,6 @@ function CountdownTimer() {
                             const value = parseInt(e.target.value) || 1;
                             setInputMinutes(value);
                             setTimeLeft(value * 60);
-                            setInitialTime(value * 60);
                         }}
                     />
                 </div>
