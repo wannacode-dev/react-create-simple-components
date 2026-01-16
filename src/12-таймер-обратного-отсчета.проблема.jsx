@@ -80,13 +80,37 @@ function CountdownTimer() {
                     onClick={startTimer}
                     className="control-button start"
                 >
-                    ▶️ Старт
+                    Старт
                 </button>
     
                 {/* Кнопка Пауза (если запущен и не на паузе) */}
+                <button 
+                    onClick={pauseTimer}
+                    className="control-button pause"
+                >
+                    Пауза
+                </button>
                 {/* Кнопка Продолжить (если на паузе) */}
+                <button 
+                    onClick={resetTimer}
+                    className="control-button start"
+                >
+                    Продолжить
+                </button>
                 {/* Кнопка Стоп (если запущен) */}
+                <button
+                     className="control-button stop"
+                     onClick={stopTimer}
+                >
+                    Стоп
+                </button>
                 {/* Кнопка Сброс (если время изменилось) */}
+                <button
+                     className="control-button reset"
+                     onClick={resetTimer}
+                >
+                    Сброс
+                </button>
             </div>
         </div>
     );
