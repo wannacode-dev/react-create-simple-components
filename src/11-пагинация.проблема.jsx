@@ -75,6 +75,7 @@ function Pagination() {
             {/* Информация */}
             <div className="pagination-info">
                 Страница <strong>?</strong> из <strong>?</strong>
+                {' • '}
                 Показаны посты <strong>?</strong> из <strong>?</strong>
             </div>
         </div>
