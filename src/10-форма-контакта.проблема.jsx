@@ -41,7 +41,7 @@ function ContactForm() {
         // Если есть ошибки - сохраните их в errors
     };
 
-    if (false) {
+    if (submitted) {
         return (
             <div className="contact-form">
                 <div className="success-message">
