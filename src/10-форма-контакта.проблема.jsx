@@ -62,6 +62,10 @@ function ContactForm() {
         <form className="contact-form" onSubmit={handleSubmit}>
             <h1>📧 Свяжитесь с нами</h1>
             <p>Заполните форму ниже</p>
+
+            <div className="form-info">
+                <p>💡 Все поля обязательны для заполнения</p>
+            </div>
             
             {/* Создайте поля формы:
                 - Имя (input text)
