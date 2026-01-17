@@ -75,11 +75,14 @@ function SearchWithAutocomplete() {
                     className="search-input"
                 />
                 
+                {/* Показывать песочные часы когда идет поиск, иначе луппу */}
                 <div className="search-icon">🔍</div>
+                <div className="loading-indicator">⏳</div>
                 
-                {/* TODO: Добавьте выпадающий список автокомплита */}
-                {/* Используйте класс "autocomplete-dropdown" */}
                 {/* Отобразите suggestions, если showSuggestions === true */}
+                <div className="autocomplete-dropdown">
+                    {/* Добавьте выпадающий список автокомплита */}
+                </div>
             </div>
             
             {/* Результаты */}
@@ -88,11 +91,32 @@ function SearchWithAutocomplete() {
                 {/* Если ничего не найдено - покажите "Ничего не найдено" */}
                 {/* Иначе - покажите filteredCountries */}
                 
-                <div className="empty-state">
-                    <div className="icon">🌐</div>
-                    <h3>Начните поиск</h3>
-                    <p>Введите название страны или столицы в поле выше</p>
-                </div>
+                {searchQuery.length === 0 ? (
+                    <div className="empty-state">
+                        <div className="icon">🌐</div>
+                        <h3>Начните поиск</h3>
+                        <p>Введите название страны или столицы в поле выше</p>
+                    </div>
+                ) : filteredCountries.length === 0 ? (
+                    <div className="empty-state">
+                        <div className="icon">😔</div>
+                        <h3>Ничего не найдено</h3>
+                        <p>Попробуйте изменить запрос</p>
+                    </div>
+                ) : (
+                    <>
+                        <div className="results-header">
+                            Найдено: <strong>{filteredCountries.length}</strong> {
+                                filteredCountries.length === 1 ? 'страна' :
+                                filteredCountries.length < 5 ? 'страны' : 'стран'
+                            }
+                        </div>
+                        
+                        <div className="countries-list">
+                            {/* Покажите filteredCountries */}
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     );
