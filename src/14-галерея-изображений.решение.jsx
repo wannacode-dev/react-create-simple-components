@@ -92,7 +92,7 @@ function ImageGallery() {
             </div>
             
             {/* Модальное окно */}
-            {selectedImage && (
+            {selectedImage !== 0 && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="modal-close" onClick={closeModal}>
