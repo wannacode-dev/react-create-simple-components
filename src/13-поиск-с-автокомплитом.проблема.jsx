@@ -76,8 +76,8 @@ function SearchWithAutocomplete() {
                 />
                 
                 {/* Показывать песочные часы когда идет поиск, иначе луппу */}
-                <div className="search-icon">🔍</div>
                 <div className="loading-indicator">⏳</div>
+                <div className="search-icon">🔍</div>
                 
                 {/* Отобразите suggestions, если showSuggestions === true */}
                 <div className="autocomplete-dropdown">
