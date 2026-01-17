@@ -92,7 +92,7 @@ function CountdownTimer() {
                 </button>
                 {/* Кнопка Продолжить (если на паузе) */}
                 <button 
-                    onClick={resetTimer}
+                    onClick={resumeTimer}
                     className="control-button start"
                 >
                     Продолжить
