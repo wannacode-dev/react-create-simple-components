@@ -7,31 +7,38 @@ const { useState } = React;
 function ThemeSwitcher() {
     // Создайте состояние theme со значением 'light' или 'dark'
     // Начальное значение: 'light'
+    const [theme, setTheme] = useState('light')
     
     const toggleTheme = () => {
         // Переключайте между 'light' и 'dark'
+        // if (theme === 'light') {
+        //     setTheme('dark')
+        // } else {
+        //     setTheme('light')
+        // }
+        setTheme(theme === 'light' ? 'dark' : 'light')
     };
     
     return (
-        <div className="theme-container light">
+        <div className={`theme-container ${theme}`}>
             {/* Добавьте класс 'light' или 'dark' в зависимости от theme */}
             
             <h1>
                 {/* Покажите эмодзи: ☀️ для light, 🌙 для dark */}
-                Переключатель темы
+                { theme === 'light' ? '☀️' : '🌙' } Переключатель темы
             </h1>
             
             <p>
-                Текущая тема: {/* Покажите название темы */}
+                Текущая тема: <strong>{theme === 'light' ? 'светлая' : 'темная'}</strong>
             </p>
             
             <button
                 onClick={toggleTheme}
-                className="theme-toggle-button"
+                className={`theme-toggle-button ${theme}`}
                 // Добавьте класс theme
             >
                 {/* Покажите соответствующую иконку:☀️ для light, 🌙 для dark */}
-                ☀️
+                { theme === 'light' ? '☀️' : '🌙' }
             </button>
             
             {/* Добавьте класс theme */}

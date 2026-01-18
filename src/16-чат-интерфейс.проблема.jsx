@@ -8,6 +8,7 @@ const { useState, useEffect, useRef } = React;
 const INITIAL_MESSAGES = [
     { id: 1, text: 'Привет! Как дела?', sender: 'bot', time: '10:00' },
     { id: 2, text: 'Отлично! А у тебя?', sender: 'user', time: '10:01' },
+    { id: 3, text: 'Тоже хорошо! Что нового?', sender: 'bot', time: '10:02' },
 ];
 
 function ChatInterface() {
@@ -49,6 +50,17 @@ function ChatInterface() {
         // - Установите isTyping в true
         // - Через setTimeout (1-2 сек) добавьте ответ бота
         // - Установите isTyping в false
+        setTimeout(() => {
+            const botResponses = [
+                'Интересно! Расскажи подробнее',
+                'Понятно, спасибо за информацию',
+                'Согласен с тобой!',
+                'Это действительно интересно',
+                'Я тоже так думаю',
+                'Отличная мысль!',
+                'Спасибо, что поделился',
+            ];
+        }, 1500);
     };
     
     return (
@@ -68,7 +80,7 @@ function ChatInterface() {
                 {/* Для каждого сообщения:
                     - Используйте класс "message sent" для user
                     - Используйте класс "message received" для bot
-                    - Покажите аватар, текст и время
+                    - Покажите аватар, текст и время 👤 🤖
                 */}
                 
                 {/* Индикатор печатания (если isTyping === true) */}

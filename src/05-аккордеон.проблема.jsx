@@ -6,9 +6,19 @@ const { useState } = React;
 
 function AccordionItem({ title, content }) {
     // Создайте состояние isOpen (boolean, начальное значение false)
+    const [isOpen, setIsOpen] = useState(false)
     
     const toggleOpen = () => {
         // Переключайте isOpen между true и false
+        setIsOpen(!isOpen)
+
+        /*
+            if (isOpen) {
+                setIsOpen(false)
+            } else {
+                setIsOpen(true)
+            }
+        */
     };
     
     return (
@@ -16,19 +26,25 @@ function AccordionItem({ title, content }) {
             {/* Заголовок (всегда видимый, кликабельный) */}
             <button
                 onClick={toggleOpen}
-                className="accordion-header"
+                className={`accordion-header ${isOpen && 'open'}`}
                 // Добавьте класс 'open' если isOpen === true
             >
                 {title}
-                <span className="accordion-icon">
+                <span className={`accordion-icon ${isOpen && 'open'}`}>
                     {/* Покажите ▼ если isOpen, иначе ▶ */}
-                    ▶
+                    { isOpen ? "▼" : "▶"}
                 </span>
             </button>
             
             {/* Контент (показывать только если isOpen === true) */}
             {/* Используйте условный рендеринг */}
-            { /* Используйте css класс accordion-content */}
+            { /* Используйте класс "accordion-content" для блока с контентом */}
+            {  isOpen && (
+                    <div className="accordion-content">
+                        { content }
+                    </div> 
+                )
+            }
         </div>
     );
 }

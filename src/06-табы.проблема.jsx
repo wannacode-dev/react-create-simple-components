@@ -7,6 +7,7 @@ const { useState } = React;
 function Tabs() {
     // Создайте состояние activeTab со значением 'profile', 'posts' или 'settings'
     // Начальное значение: 'profile'
+    const [activeTab, setActiveTab] = useState('profile')
     
     const tabs = [
         { id: 'profile', label: '👤 Профиль' },
@@ -23,8 +24,10 @@ function Tabs() {
                 {tabs.map(tab => (
                     <button
                         key={tab.id}
-                        onClick={() => {/* Установите activeTab в tab.id */}}
-                        className="tab-button"
+                        onClick={() => {
+                            setActiveTab(tab.id)
+                        }}
+                        className={`tab-button ${activeTab === tab.id && 'active'}`}
                         // Добавьте класс 'active' если activeTab === tab.id
                     >
                         {tab.label}
@@ -37,24 +40,24 @@ function Tabs() {
                 {/* Используйте условный рендеринг для отображения нужного контента */}
                 
                 {/* Если activeTab === 'profile' */}
-                <div>
+                { activeTab === 'profile' && ( <div>
                     <h2>👤 Профиль пользователя</h2>
                     <p>Имя: Иван Иванов</p>
                     <p>Email: ivan@example.com</p>
                     <p>Регистрация: 15.03.2024</p>
-                </div>
+                </div>)}
                 
                 {/* Если activeTab === 'posts' */}
-                {/* <div>
+                {activeTab === 'posts' && <div>
                     <h2>📝 Мои посты</h2>
                     <div className="posts-list">...</div>
-                </div> */}
+                </div>}
                 
                 {/* Если activeTab === 'settings' */}
-                {/* <div>
+                { activeTab === 'settings' && <div>
                     <h2>⚙️ Настройки</h2>
                     <div>...</div>
-                </div> */}
+                </div>}
             </div>
         </div>
     );

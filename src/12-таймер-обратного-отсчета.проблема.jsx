@@ -10,7 +10,6 @@ function CountdownTimer() {
     // - timeLeft (оставшееся время в секундах, начальное: 60)
     // - isRunning (запущен ли таймер, начальное: false)
     // - isPaused (на паузе ли таймер, начальное: false)
-    // - initialTime (начальное время для прогресс-бара, начальное: 60)
     
     // Используйте useEffect для создания таймера:
     useEffect(() => {
@@ -81,18 +80,37 @@ function CountdownTimer() {
                     onClick={startTimer}
                     className="control-button start"
                 >
-                    ▶️ Старт
+                    Старт
                 </button>
-                
+    
                 {/* Кнопка Пауза (если запущен и не на паузе) */}
+                <button 
+                    onClick={pauseTimer}
+                    className="control-button pause"
+                >
+                    Пауза
+                </button>
                 {/* Кнопка Продолжить (если на паузе) */}
+                <button 
+                    onClick={resumeTimer}
+                    className="control-button start"
+                >
+                    Продолжить
+                </button>
                 {/* Кнопка Стоп (если запущен) */}
+                <button
+                     className="control-button stop"
+                     onClick={stopTimer}
+                >
+                    Стоп
+                </button>
                 {/* Кнопка Сброс (если время изменилось) */}
-            </div>
-            
-            {/* Статус */}
-            <div className="timer-status idle">
-                ⚪ Готов к запуску
+                <button
+                     className="control-button reset"
+                     onClick={resetTimer}
+                >
+                    Сброс
+                </button>
             </div>
         </div>
     );

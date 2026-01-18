@@ -9,7 +9,6 @@ function CountdownTimer() {
     const [timeLeft, setTimeLeft] = useState(60); // в секундах
     const [isRunning, setIsRunning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
-    const [initialTime, setInitialTime] = useState(60);
     
     // Таймер с помощью useEffect
     useEffect(() => {
@@ -36,7 +35,6 @@ function CountdownTimer() {
     
     const startTimer = () => {
         if (!isRunning) {
-            setInitialTime(inputMinutes * 60);
             setTimeLeft(inputMinutes * 60);
         }
         setIsRunning(true);
@@ -61,7 +59,6 @@ function CountdownTimer() {
         setIsRunning(false);
         setIsPaused(false);
         setTimeLeft(inputMinutes * 60);
-        setInitialTime(inputMinutes * 60);
     };
     
     // Форматирование времени в MM:SS
@@ -70,26 +67,6 @@ function CountdownTimer() {
         const secs = seconds % 60;
         return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
     };
-    
-    // Определяем класс для дисплея (warning если < 30 сек, danger если < 10 сек)
-    const getDisplayClass = () => {
-        if (timeLeft <= 10 && timeLeft > 0) return 'danger';
-        if (timeLeft <= 30 && timeLeft > 0) return 'warning';
-        return '';
-    };
-    
-    // Статус таймера
-    const getStatus = () => {
-        if (timeLeft === 0 && !isRunning) return 'finished';
-        if (isRunning && !isPaused) return 'running';
-        if (isPaused) return 'paused';
-        return 'idle';
-    };
-    
-    const status = getStatus();
-    
-    // Прогресс для прогресс-бара
-    const progress = initialTime > 0 ? ((initialTime - timeLeft) / initialTime) * 100 : 0;
     
     return (
         <div className="timer-card">
@@ -107,13 +84,12 @@ function CountdownTimer() {
                             const value = parseInt(e.target.value) || 1;
                             setInputMinutes(value);
                             setTimeLeft(value * 60);
-                            setInitialTime(value * 60);
                         }}
                     />
                 </div>
             )}
             
-            <div className={`timer-display ${getDisplayClass()}`}>
+            <div className="timer-display">
                 {formatTime(timeLeft)}
             </div>
             
@@ -163,22 +139,6 @@ function CountdownTimer() {
                     </button>
                 )}
             </div>
-            
-            <div className={`timer-status ${status}`}>
-                {status === 'idle' && '⚪ Готов к запуску'}
-                {status === 'running' && '🟢 Идёт отсчёт...'}
-                {status === 'paused' && '🟡 На паузе'}
-                {status === 'finished' && '🎉 Время вышло!'}
-            </div>
-            
-            {isRunning && (
-                <div className="progress-bar">
-                    <div 
-                        className="progress-fill" 
-                        style={{ width: `${progress}%` }}
-                    />
-                </div>
-            )}
         </div>
     );
 }

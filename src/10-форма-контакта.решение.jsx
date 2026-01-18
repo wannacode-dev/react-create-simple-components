@@ -79,7 +79,7 @@ function ContactForm() {
                 <div className="success-message">
                     <h3>✅ Спасибо за ваше сообщение!</h3>
                     <p>Мы свяжемся с вами в ближайшее время.</p>
-                    <p style={{ marginTop: '20px' }}>
+                    <p>
                         <strong>Ваши данные:</strong><br />
                         Имя: {formData.name}<br />
                         Email: {formData.email}<br />

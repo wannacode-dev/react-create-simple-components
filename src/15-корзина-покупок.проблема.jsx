@@ -6,10 +6,12 @@ const { useState } = React;
 
 // Данные товаров
 const PRODUCTS = [
-    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM', price: 75000, image: '💻' },
-    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка', price: 8500, image: '⌨️' },
+    { id: 1, name: 'Ноутбук ASUS', description: 'Intel Core i7, 16GB RAM, 512GB SSD', price: 75000, image: '💻' },
+    { id: 2, name: 'Клавиатура механическая', description: 'RGB подсветка, Cherry MX Red', price: 8500, image: '⌨️' },
     { id: 3, name: 'Мышь беспроводная', description: 'Logitech MX Master 3', price: 7200, image: '🖱️' },
     { id: 4, name: 'Монитор 27"', description: '2K, 144Hz, IPS', price: 32000, image: '🖥️' },
+    { id: 5, name: 'Наушники', description: 'Sony WH-1000XM4, шумоподавление', price: 22000, image: '🎧' },
+    { id: 6, name: 'Веб-камера', description: 'Logitech C920, Full HD', price: 5500, image: '📷' },
 ];
 
 function ShoppingCart() {
