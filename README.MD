@@ -6,7 +6,9 @@
 
 ```bash
 git clone https://github.com/wannacode-dev/react-create-simple-components.git
+
 cd react-create-simple-components
+
 npm install
 ```
 
