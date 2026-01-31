@@ -13,8 +13,8 @@ function ContactForm() {
     // - message (строка)
     // - agree (boolean)
 
-    const [errors, setErrors] = useState({});
-    const [submitted, setSubmitted] = useState(false);
+    // Создайте состояние errors (объект ошибок валидации)
+    // Создайте состояние submitted (boolean, успешная отправка)
 
     const handleChange = (e) => {
         // Получите name, value, type, checked из e.target
@@ -41,22 +41,7 @@ function ContactForm() {
         // Если есть ошибки - сохраните их в errors
     };
 
-    if (submitted) {
-        return (
-            <div className="contact-form">
-                <div className="success-message">
-                    <h3>✅ Спасибо за ваше сообщение!</h3>
-                    <p>Мы свяжемся с вами в ближайшее время.</p>
-                    <p>
-                        <strong>Ваши данные:</strong><br />
-                        Имя: {formData.name}<br />
-                        Email: {formData.email}<br />
-                        Тема: {formData.subject === 'question' ? 'Вопрос' : formData.subject === 'suggestion' ? 'Предложение' : 'Жалоба'}
-                    </p>
-                </div>
-            </div>
-        );
-    }
+    // Если submitted === true - покажите сообщение "Спасибо за ваше сообщение!" и данные формы
 
     return (
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -76,7 +61,7 @@ function ContactForm() {
                 - Согласие на обработку (checkbox)
             */}
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 <label>
                     Имя <span className="required">*</span>
                 </label>
@@ -84,7 +69,7 @@ function ContactForm() {
                 {/* Имя (input text) */}
             </div>
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 <label>
                     Email <span className="required">*</span>
                 </label>
@@ -92,7 +77,7 @@ function ContactForm() {
                 {/* Email (input email) */}
             </div>
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 <label>
                     Телефон <span className="required">*</span>
                 </label>
@@ -100,13 +85,13 @@ function ContactForm() {
                 {/* Телефон (input tel) */}
             </div>
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 <label>Тема обращения</label>
 
                 {/* Тема (select с опциями: question, suggestion, complaint) */}
             </div>
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 <label>
                     Сообщение <span className="required">*</span>
                 </label>
@@ -114,11 +99,11 @@ function ContactForm() {
                 {/* Сообщение (textarea) */}
             </div>
 
-            <div className={`form-group ${errors.name ? 'error' : ''}`}>
+            <div className="form-group">
                 {/* Согласие на обработку (checkbox) */}
             </div>
 
-            {/* Добавьте отображение ошибок */}
+            {/* Добавьте отображение ошибок (errors) и класс error для полей с ошибкой */}
 
             <button type="submit" className="submit-button">
                 Отправить сообщение

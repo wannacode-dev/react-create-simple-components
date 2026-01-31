@@ -17,17 +17,12 @@ function ChatInterface() {
     // - inputValue (текст в поле ввода, начальное: '')
     // - isTyping (печатает ли бот, начальное: false)
     
-    // Создайте ref для автоскролла:
     const messagesEndRef = useRef(null);
     
-    // Автоскролл при изменении messages
-    useEffect(() => {
-        // Вызовите scrollToBottom()
-    }, [/* зависимости */]);
+    // Автоскролл при изменении messages (useEffect -> scrollToBottom)
     
     const scrollToBottom = () => {
-        // Прокрутите к messagesEndRef
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        // Прокрутите к messagesEndRef (scrollIntoView)
     };
     
     const sendMessage = (e) => {
@@ -35,21 +30,10 @@ function ChatInterface() {
         
         // Проверьте, что inputValue не пустой
         
-        // Создайте новое сообщение:
-        const newMessage = {
-            id: Date.now(),
-            text: inputValue,
-            sender: 'user',
-            time: new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
-        };
+        // Создайте новое сообщение: id, text: inputValue, sender: 'user', time
+        // Добавьте в messages, очистите inputValue
         
-        // Добавьте сообщение в массив messages
-        // Очистите inputValue
-        
-        // Имитация ответа бота (опционально):
-        // - Установите isTyping в true
-        // - Через setTimeout (1-2 сек) добавьте ответ бота
-        // - Установите isTyping в false
+        // Опционально: имитация ответа бота (setIsTyping(true), setTimeout 1–2 сек, добавить сообщение бота, setIsTyping(false))
         setTimeout(() => {
             const botResponses = [
                 'Интересно! Расскажи подробнее',
@@ -60,6 +44,9 @@ function ChatInterface() {
                 'Отличная мысль!',
                 'Спасибо, что поделился',
             ];
+            
+            const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+
         }, 1500);
     };
     
@@ -77,13 +64,10 @@ function ChatInterface() {
             {/* Сообщения */}
             <div className="chat-messages">
                 {/* Отобразите все messages */}
-                {/* Для каждого сообщения:
-                    - Используйте класс "message sent" для user
-                    - Используйте класс "message received" для bot
-                    - Покажите аватар, текст и время 👤 🤖
-                */}
+                {/* Для каждого: класс "message sent" для user, "message received" для bot */}
+                {/* Покажите аватар, текст и время 👤 🤖 */}
                 
-                {/* Индикатор печатания (если isTyping === true) */}
+                {/* Индикатор печатания, если isTyping === true */}
                 
                 {/* Элемент для автоскролла */}
                 <div ref={messagesEndRef} />
@@ -119,4 +103,3 @@ function App() {
 }
 
 export default App;
-

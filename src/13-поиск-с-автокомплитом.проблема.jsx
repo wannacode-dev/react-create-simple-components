@@ -19,33 +19,16 @@ const COUNTRIES = [
 ];
 
 function SearchWithAutocomplete() {
-    const [searchQuery, setSearchQuery] = useState('');
-
     // Создайте состояния:
+    // - searchQuery (строка поиска)
     // - suggestions (массив подсказок для автокомплита)
     // - showSuggestions (показывать ли выпадающий список)
     // - filteredCountries (отфильтрованный список стран)
     // - isSearching (индикатор поиска)
     
-    // Используйте useEffect с debounce:
-    useEffect(() => {
-        // Если searchQuery пустой - очистите все
-        
-        // Установите isSearching в true
-        
-        // Создайте таймер с задержкой 300мс:
-        const timer = setTimeout(() => {
-            // Отфильтруйте COUNTRIES по searchQuery
-            // Ищите совпадения в name или capital (toLowerCase)
-            
-            // Установите suggestions (первые 5 результатов)
-            // Установите filteredCountries (все результаты)
-            // Установите isSearching в false
-        }, 300);
-        
-        // Cleanup: очистите таймер
-        return () => clearTimeout(timer);
-    }, [searchQuery]);
+    // Используйте useEffect с debounce (задержка ~300мс):
+    // При изменении searchQuery отфильтруйте COUNTRIES по name или capital
+    // Заполните suggestions (первые 5) и filteredCountries
     
     const handleInputChange = (e) => {
         // Обновите searchQuery
@@ -69,19 +52,19 @@ function SearchWithAutocomplete() {
             <div className="search-box">
                 <input 
                     type="text"
-                    value={''} // searchQuery
+                    value={''} // привяжите к searchQuery
                     onChange={handleInputChange}
                     placeholder="Начните вводить название..."
                     className="search-input"
                 />
                 
-                {/* Показывать песочные часы когда идет поиск, иначе луппу */}
+                {/* Показывать песочные часы когда идёт поиск, иначе лупу */}
                 <div className="loading-indicator">⏳</div>
                 <div className="search-icon">🔍</div>
                 
-                {/* Отобразите suggestions, если showSuggestions === true */}
+                {/* Отобразите выпадающий список suggestions, если showSuggestions === true */}
                 <div className="autocomplete-dropdown">
-                    {/* Добавьте выпадающий список автокомплита */}
+                    {/* Список подсказок по клику выбирает страну */}
                 </div>
             </div>
             
@@ -89,34 +72,7 @@ function SearchWithAutocomplete() {
             <div className="search-results">
                 {/* Если searchQuery пустой - покажите "Начните поиск" */}
                 {/* Если ничего не найдено - покажите "Ничего не найдено" */}
-                {/* Иначе - покажите filteredCountries */}
-                
-                {searchQuery.length === 0 ? (
-                    <div className="empty-state">
-                        <div className="icon">🌐</div>
-                        <h3>Начните поиск</h3>
-                        <p>Введите название страны или столицы в поле выше</p>
-                    </div>
-                ) : filteredCountries.length === 0 ? (
-                    <div className="empty-state">
-                        <div className="icon">😔</div>
-                        <h3>Ничего не найдено</h3>
-                        <p>Попробуйте изменить запрос</p>
-                    </div>
-                ) : (
-                    <>
-                        <div className="results-header">
-                            Найдено: <strong>{filteredCountries.length}</strong> {
-                                filteredCountries.length === 1 ? 'страна' :
-                                filteredCountries.length < 5 ? 'страны' : 'стран'
-                            }
-                        </div>
-                        
-                        <div className="countries-list">
-                            {/* Покажите filteredCountries */}
-                        </div>
-                    </>
-                )}
+                {/* Иначе - покажите список filteredCountries */}
             </div>
         </div>
     );
@@ -131,4 +87,3 @@ function App() {
 }
 
 export default App;
-

@@ -6,7 +6,6 @@ const { useState } = React;
 
 function Modal({ isOpen, onClose }) {
     // Если модалка закрыта (isOpen === false), ничего не показываем
-    if (!isOpen) return null;
     
     return (
         <div className="modal-overlay" onClick={onClose}>
@@ -39,16 +38,13 @@ function Modal({ isOpen, onClose }) {
 
 function App() {
     // Создайте состояние isModalOpen (boolean, начальное значение false)
-    const [isModalOpen, setIsModalOpen] = useState(false)
     
     const openModal = () => {
         // Установите isModalOpen в true
-        setIsModalOpen(true)
     };
     
     const closeModal = () => {
         // Установите isModalOpen в false
-        setIsModalOpen(false)
     };
     
     return (
@@ -66,10 +62,7 @@ function App() {
             </div>
             
             {/* Передайте isModalOpen и closeModal в компонент Modal */}
-            <Modal
-                isOpen={isModalOpen}
-                onClose={closeModal}
-            />
+            <Modal />
         </div>
     );
 }
